@@ -61,7 +61,6 @@
 
     <!-- Background Image -->
     <div class="fixed inset-0 z-0">
-        <!-- Make sure the file name matches exactly: hawaiiplant.png -->
         <img src="hawaiiplant.png" alt="Background" class="w-full h-full object-cover opacity-10">
     </div>
 
@@ -123,9 +122,12 @@
                             <a href="https://www.linkedin.com/in/bryant-abalos/" target="_blank" class="flex items-center gap-2 text-gray-700 hover:text-googleBlue transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
                                 <i class="fab fa-linkedin text-xl"></i> LinkedIn
                             </a>
-                            <a href="mailto:bjabalos808@gmail.com" class="flex items-center gap-2 text-gray-700 hover:text-googleRed transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
-                                <i class="fas fa-envelope text-xl"></i> Email
-                            </a>
+                            
+                            <!-- Updated Email Button (Click to Copy) -->
+                            <button onclick="copyEmail(this)" class="flex items-center gap-2 text-gray-700 hover:text-googleRed transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md cursor-pointer">
+                                <i class="fas fa-envelope text-xl"></i> <span>Email</span>
+                            </button>
+
                             <a href="tel:8083433571" class="flex items-center gap-2 text-gray-700 hover:text-googleGreen transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
                                 <i class="fas fa-phone text-xl"></i> (808) 343-3571
                             </a>
@@ -136,7 +138,6 @@
                     <div class="relative reveal active delay-200 order-1 lg:order-2 flex justify-center lg:block">
                         <!-- Photo Placeholder -->
                         <div class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10 bg-gray-200 hover-scale">
-                            <!-- USER IMAGE HERE -->
                             <img src="profile.jpg" alt="Bryant Abalos" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Photo'">
                         </div>
 
@@ -144,11 +145,9 @@
                         <div class="absolute top-10 left-10 md:left-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-3xl -z-0 animate-pulse"></div>
 
                         <!-- Fun Fact Card (Steph Curry) -->
-                        <!-- Updated positioning: '-bottom-28' and '-right-16' to be significantly lower and further right -->
                         <div class="absolute -bottom-28 -right-4 md:-right-16 lg:-right-16 bg-white p-3 rounded-xl shadow-xl border border-gray-100 max-w-[280px] z-20 transform rotate-2 hover:rotate-0 transition duration-300 hover:scale-105">
                             <div class="flex flex-col gap-2">
                                 <div class="rounded-lg overflow-hidden h-32 w-full bg-gray-100 relative">
-                                    <!-- USER IMAGE HERE -->
                                     <img src="steph.jpg" alt="Bryant and Steph Curry" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x200?text=Steph+Curry+Photo'">
                                 </div>
                                 <div>
@@ -166,7 +165,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-white/80 backdrop-blur-sm"> <!-- Added bg/backdrop to ensure readability over background -->
+        <section id="skills" class="py-20 bg-white/80 backdrop-blur-sm"> 
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-12 reveal">
                     <h2 class="text-3xl font-bold text-gray-900">Technical Arsenal</h2>
@@ -483,7 +482,7 @@
             </div>
             <div class="flex gap-6">
                 <a href="https://www.linkedin.com/in/bryant-abalos/" class="text-gray-400 hover:text-white transition">LinkedIn</a>
-                <a href="mailto:bjabalos808@gmail.com" class="text-gray-400 hover:text-white transition">Email</a>
+                <button onclick="copyEmail(this)" class="text-gray-400 hover:text-white transition">Email</button>
                 <a href="#" class="text-gray-400 hover:text-white transition">Back to Top</a>
             </div>
         </div>
@@ -539,6 +538,30 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // EMAIL COPY FUNCTION
+        function copyEmail(btn) {
+            navigator.clipboard.writeText("bjabalos808@gmail.com");
+            
+            // Save original content
+            const originalContent = btn.innerHTML;
+            
+            // Change look
+            // Check if it's the hero button (has icon) or footer (text only)
+            if(btn.querySelector('i')) {
+                 btn.innerHTML = '<i class="fas fa-check text-xl"></i> <span>Copied!</span>';
+                 btn.classList.add('text-green-600', 'border-green-600');
+            } else {
+                 btn.textContent = 'Copied!';
+                 btn.classList.add('text-green-400');
+            }
+            
+            // Revert
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.classList.remove('text-green-600', 'border-green-600', 'text-green-400');
+            }, 2000);
+        }
     </script>
 </body>
 </html>
