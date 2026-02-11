@@ -61,6 +61,7 @@
 
     <!-- Background Image -->
     <div class="fixed inset-0 z-0">
+        <!-- Make sure the file name matches exactly: hawaiiplant.png -->
         <img src="hawaiiplant.png" alt="Background" class="w-full h-full object-cover opacity-10">
     </div>
 
@@ -127,10 +128,6 @@
                             <button onclick="copyEmail(this)" class="flex items-center gap-2 text-gray-700 hover:text-googleRed transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md cursor-pointer">
                                 <i class="fas fa-envelope text-xl"></i> <span>Email</span>
                             </button>
-
-                            <a href="tel:8083433571" class="flex items-center gap-2 text-gray-700 hover:text-googleGreen transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
-                                <i class="fas fa-phone text-xl"></i> (808) 343-3571
-                            </a>
                         </div>
                     </div>
 
@@ -138,6 +135,7 @@
                     <div class="relative reveal active delay-200 order-1 lg:order-2 flex justify-center lg:block">
                         <!-- Photo Placeholder -->
                         <div class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10 bg-gray-200 hover-scale">
+                            <!-- USER IMAGE HERE -->
                             <img src="profile.jpg" alt="Bryant Abalos" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Photo'">
                         </div>
 
@@ -148,6 +146,7 @@
                         <div class="absolute -bottom-28 -right-4 md:-right-16 lg:-right-16 bg-white p-3 rounded-xl shadow-xl border border-gray-100 max-w-[280px] z-20 transform rotate-2 hover:rotate-0 transition duration-300 hover:scale-105">
                             <div class="flex flex-col gap-2">
                                 <div class="rounded-lg overflow-hidden h-32 w-full bg-gray-100 relative">
+                                    <!-- USER IMAGE HERE -->
                                     <img src="steph.jpg" alt="Bryant and Steph Curry" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x200?text=Steph+Curry+Photo'">
                                 </div>
                                 <div>
@@ -471,6 +470,89 @@
             </div>
         </section>
 
+        <!-- Experience Timeline -->
+        <section id="experience" class="py-20 bg-gray-50/90 border-t border-gray-200 backdrop-blur-sm">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center reveal">Career Timeline</h2>
+                
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                    
+                    <!-- Role 1 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google" class="w-5 h-5 opacity-80">
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-gray-900">Cognizant / Google</span>
+                                <span class="text-xs text-googleBlue font-bold bg-blue-50 px-2 py-1 rounded">Current</span>
+                            </div>
+                            <div class="text-sm font-medium text-gray-500 mb-2">Systems Analyst & Automation Lead</div>
+                            <p class="text-gray-600 text-sm">Delivering 99.9% uptime and reducing reporting time by 40% via SQL automation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Role 2 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                             <i class="fas fa-code text-gray-400"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-gray-900">Smartronix (SMX)</span>
+                                <span class="text-xs text-gray-500 font-bold">2023</span>
+                            </div>
+                            <div class="text-sm font-medium text-gray-500 mb-2">Data/Software Engineering Intern</div>
+                            <p class="text-gray-600 text-sm">
+                                 <strong>Challenge:</strong> Handling large volumes of text data efficiently.<br>
+                                 <strong>Solution:</strong> Engineered Python-based keyword extraction tools (BERT) improving processing speed by 30%.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 3 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <i class="fas fa-pen-nib text-gray-400"></i>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-gray-900">Adobe</span>
+                                <span class="text-xs text-gray-500 font-bold">2022-2024</span>
+                            </div>
+                            <div class="text-sm font-medium text-gray-500 mb-2">Student Engagement Lead</div>
+                            <p class="text-gray-600 text-sm">Generated 250+ leads and analyzed engagement trends using data.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Media Section -->
+        <section id="media" class="py-20 bg-white border-t border-gray-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 reveal">
+                    <h2 class="text-3xl font-bold text-gray-900 text-center">Featured In</h2>
+                    <p class="text-gray-500 mt-2 text-center">Highlighting my journey in tech and community engagement.</p>
+                </div>
+                <!-- Centered Single Card Layout -->
+                <div class="flex justify-center">
+                    <!-- TikTok Card -->
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 flex flex-col items-center text-center hover:shadow-lg transition reveal max-w-md w-full">
+                        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white mb-4 text-2xl">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Adobe Life TikTok</h3>
+                        <p class="text-gray-600 mb-6">Featured by Adobe highlighting my experience as a Student Engagement Lead and the impact of community building.</p>
+                        <a href="https://www.tiktok.com/@adobe/video/7444989096424066350" target="_blank" class="px-6 py-2 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition">
+                            Watch Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <!-- Footer -->
@@ -478,7 +560,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0">
                 <span class="font-bold text-xl tracking-tight">BRYANT ABALOS</span>
-                <p class="text-gray-400 text-sm mt-1">Los Angeles, CA • (808) 343-3571</p>
+                <p class="text-gray-400 text-sm mt-1">Los Angeles, CA</p>
             </div>
             <div class="flex gap-6">
                 <a href="https://www.linkedin.com/in/bryant-abalos/" class="text-gray-400 hover:text-white transition">LinkedIn</a>
