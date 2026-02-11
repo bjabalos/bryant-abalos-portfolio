@@ -29,11 +29,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .hero-pattern {
-            background-color: #ffffff;
-            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
         
         /* SCROLL REVEAL ANIMATION */
         .reveal {
@@ -62,7 +57,13 @@
         .hover-scale:hover { transform: scale(1.05); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased selection:bg-googleBlue selection:text-white">
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-googleBlue selection:text-white relative">
+
+    <!-- Background Image -->
+    <div class="fixed inset-0 z-0">
+        <!-- Make sure the file name matches exactly: hawaiiplant.png -->
+        <img src="hawaiiplant.png" alt="Background" class="w-full h-full object-cover opacity-10">
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300" id="navbar">
@@ -87,446 +88,393 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="pt-32 pb-20 hero-pattern border-b border-gray-100 min-h-screen flex items-center">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left: Text -->
-                <div class="reveal active">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-googleBlue text-xs font-bold uppercase tracking-wide mb-6">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-googleBlue"></span>
-                        </span>
-                        Available for New Opportunities
-                    </div>
-                    
-                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">
-                        Hi, I'm Bryant.<br>
-                        I build <span class="text-googleBlue typewriter-text" id="typewriter"></span>
-                    </h1>
-                    
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed max-w-lg">
-                        My journey into data began with a simple curiosity to understand the <strong>"why"</strong> behind numbers. Currently contracted at <strong>Google</strong> (via Cognizant), specializing in 99.9% uptime and SQL automation.
-                    </p>
-                    
-                    <p class="text-gray-500 text-sm mb-8 border-l-4 border-googleYellow pl-4 italic">
-                        "I believe in the power of data to drive decisions and am excited to contribute my skills to innovative teams."
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://www.linkedin.com/in/bryant-abalos/" target="_blank" class="flex items-center gap-2 text-gray-700 hover:text-googleBlue transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
-                            <i class="fab fa-linkedin text-xl"></i> LinkedIn
-                        </a>
-                        <a href="mailto:bjabalos808@gmail.com" class="flex items-center gap-2 text-gray-700 hover:text-googleRed transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
-                            <i class="fas fa-envelope text-xl"></i> Email
-                        </a>
-                        <a href="tel:8083433571" class="flex items-center gap-2 text-gray-700 hover:text-googleGreen transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
-                            <i class="fas fa-phone text-xl"></i> (808) 343-3571
-                        </a>
-                    </div>
-                </div>
+    <!-- Main Content Wrapper (z-index 10 to sit above background) -->
+    <div class="relative z-10">
 
-                <!-- Right: Photo & Fun Fact -->
-                <div class="relative reveal active delay-200 order-1 lg:order-2 flex justify-center lg:block">
-                    <!-- Photo Placeholder -->
-                    <div class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10 bg-gray-200 hover-scale">
-                        <!-- USER IMAGE HERE -->
-                        <img src="profile.jpg" alt="Bryant Abalos" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Photo'">
-                    </div>
-
-                    <!-- Decorative Blob -->
-                    <div class="absolute top-10 left-10 md:left-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-3xl -z-0 animate-pulse"></div>
-
-                    <!-- Fun Fact Card (Steph Curry) -->
-                    <div class="absolute -bottom-6 -right-2 md:right-4 lg:right-0 bg-white p-3 rounded-xl shadow-xl border border-gray-100 max-w-[280px] z-20 transform rotate-2 hover:rotate-0 transition duration-300 hover:scale-105">
-                        <div class="flex flex-col gap-2">
-                            <div class="rounded-lg overflow-hidden h-32 w-full bg-gray-100 relative">
-                                <!-- USER IMAGE HERE -->
-                                <img src="steph.jpg" alt="Bryant and Steph Curry" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x200?text=Steph+Curry+Photo'">
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 text-xs uppercase tracking-wide text-googleYellow">Fun Fact</h4>
-                                <p class="text-xs text-gray-600 mt-1 leading-snug">
-                                    I won MVP at a <strong>Steph Curry camp</strong> in Hawaii and met him in person! He's a huge inspiration for my work ethic.
-                                </p>
-                            </div>
+        <!-- Hero Section -->
+        <section id="about" class="pt-32 pb-20 border-b border-gray-100 min-h-screen flex items-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left: Text -->
+                    <div class="reveal active">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-googleBlue text-xs font-bold uppercase tracking-wide mb-6">
+                            <span class="relative flex h-2 w-2">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-2 w-2 bg-googleBlue"></span>
+                            </span>
+                            Available for New Opportunities
                         </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 reveal">
-                <h2 class="text-3xl font-bold text-gray-900">Technical Arsenal</h2>
-                <p class="text-gray-500 mt-2">Tools I use to drive efficiency and reliability.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Card 1 -->
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300">
-                    <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-googleBlue mb-4">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 mb-2">Data & Scripting</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">SQL (BigQuery)</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Python</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">JavaScript</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Bash</span>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300" style="transition-delay: 100ms;">
-                    <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-500 mb-4">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 mb-2">Cloud Ecosystem</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Google Cloud (GCP)</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">AWS (S3/EC2)</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">ServiceNow</span>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300" style="transition-delay: 200ms;">
-                    <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600 mb-4">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 mb-2">Visualization</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Looker Studio</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Tableau</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Power BI</span>
-                    </div>
-                </div>
-
-                 <!-- Card 4 -->
-                 <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300" style="transition-delay: 300ms;">
-                    <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 mb-4">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 mb-2">Core Concepts</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">RCA</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">AIOps</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Agile</span>
-                        <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Automation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enterprise Projects (Cognizant/Google) -->
-    <section id="projects" class="py-20 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 reveal">
-                <span class="text-googleBlue font-bold tracking-widest uppercase text-sm">Enterprise Systems</span>
-                <h2 class="text-3xl font-bold text-gray-900 mt-2">Professional Impact</h2>
-                <p class="text-gray-500 mt-2">Engineering solutions deployed in high-traffic production environments.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <!-- Project 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group reveal">
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-googleBlue">
-                                <i class="fas fa-users text-xl"></i>
-                            </div>
-                            <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Analytics</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-googleBlue transition">Participant Analytics Ecosystem</h3>
-                        <p class="text-gray-600 mb-6">A large-scale tracking ecosystem designed to manage engagement data for over 30,000 participants. Engineered a custom log and API analyzer to ensure data consistency.</p>
                         
-                        <div class="border-t border-gray-100 pt-6">
-                            <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">Key Impact</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-start gap-2 text-sm text-gray-600">
-                                    <i class="fas fa-check text-green-500 mt-1"></i>
-                                    Developed real-time troubleshooting framework ensuring 100% data integrity.
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-gray-600">
-                                    <i class="fas fa-check text-green-500 mt-1"></i>
-                                    Seamlessly integrated AppSheet, AppScript, and SQL.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-8 py-4 border-t border-gray-100 flex gap-3">
-                        <span class="text-xs font-semibold text-gray-500">AppSheet</span>
-                        <span class="text-xs font-semibold text-gray-500">AppScript</span>
-                        <span class="text-xs font-semibold text-gray-500">SQL</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group reveal" style="transition-delay: 200ms;">
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-red-50 text-googleRed">
-                                <i class="fas fa-shield-alt text-xl"></i>
-                            </div>
-                            <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Compliance</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-googleRed transition">Automated Auditor Toolkit</h3>
-                        <p class="text-gray-600 mb-6">Built a centralized dashboard to automate the detection of compliance gaps, replacing manual sampling methods with algorithmic decision support.</p>
+                        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                            Hi, I'm Bryant.<br>
+                            I build <span class="text-googleBlue typewriter-text" id="typewriter"></span>
+                        </h1>
                         
-                        <div class="border-t border-gray-100 pt-6">
-                            <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">Key Impact</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-start gap-2 text-sm text-gray-600">
-                                    <i class="fas fa-check text-green-500 mt-1"></i>
-                                    Streamlined audit cycles by 30%.
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-gray-600">
-                                    <i class="fas fa-check text-green-500 mt-1"></i>
-                                    Prevented "silent" discrepancies in enterprise databases.
-                                </li>
-                            </ul>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed max-w-lg">
+                            My journey into data began with a simple curiosity to understand the <strong>"why"</strong> behind numbers. Currently contracted at <strong>Google</strong> (via Cognizant), specializing in 99.9% uptime and SQL automation.
+                        </p>
+                        
+                        <p class="text-gray-500 text-sm mb-8 border-l-4 border-googleYellow pl-4 italic">
+                            "I believe in the power of data to drive decisions and am excited to contribute my skills to innovative teams."
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.linkedin.com/in/bryant-abalos/" target="_blank" class="flex items-center gap-2 text-gray-700 hover:text-googleBlue transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
+                                <i class="fab fa-linkedin text-xl"></i> LinkedIn
+                            </a>
+                            <a href="mailto:bjabalos808@gmail.com" class="flex items-center gap-2 text-gray-700 hover:text-googleRed transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
+                                <i class="fas fa-envelope text-xl"></i> Email
+                            </a>
+                            <a href="tel:8083433571" class="flex items-center gap-2 text-gray-700 hover:text-googleGreen transition bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
+                                <i class="fas fa-phone text-xl"></i> (808) 343-3571
+                            </a>
                         </div>
                     </div>
-                    <div class="bg-gray-50 px-8 py-4 border-t border-gray-100 flex gap-3">
-                        <span class="text-xs font-semibold text-gray-500">Looker Studio</span>
-                        <span class="text-xs font-semibold text-gray-500">JavaScript</span>
-                        <span class="text-xs font-semibold text-gray-500">SQL</span>
+
+                    <!-- Right: Photo & Fun Fact -->
+                    <div class="relative reveal active delay-200 order-1 lg:order-2 flex justify-center lg:block">
+                        <!-- Photo Placeholder -->
+                        <div class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10 bg-gray-200 hover-scale">
+                            <!-- USER IMAGE HERE -->
+                            <img src="profile.jpg" alt="Bryant Abalos" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Photo'">
+                        </div>
+
+                        <!-- Decorative Blob -->
+                        <div class="absolute top-10 left-10 md:left-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full blur-3xl -z-0 animate-pulse"></div>
+
+                        <!-- Fun Fact Card (Steph Curry) -->
+                        <!-- Updated positioning: 'bottom-0' and '-right-4' to be lower and not block face -->
+                        <div class="absolute bottom-0 -right-4 md:-right-10 lg:-right-4 bg-white p-3 rounded-xl shadow-xl border border-gray-100 max-w-[280px] z-20 transform rotate-2 hover:rotate-0 transition duration-300 hover:scale-105">
+                            <div class="flex flex-col gap-2">
+                                <div class="rounded-lg overflow-hidden h-32 w-full bg-gray-100 relative">
+                                    <!-- USER IMAGE HERE -->
+                                    <img src="steph.jpg" alt="Bryant and Steph Curry" class="w-full h-full object-cover object-top" onerror="this.src='https://via.placeholder.com/400x200?text=Steph+Curry+Photo'">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-xs uppercase tracking-wide text-googleYellow">Fun Fact</h4>
+                                    <p class="text-xs text-gray-600 mt-1 leading-snug">
+                                        I won MVP at a <strong>Steph Curry camp</strong> in Hawaii and met him in person! He's a huge inspiration for my work ethic.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-white/80 backdrop-blur-sm"> <!-- Added bg/backdrop to ensure readability over background -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 reveal">
+                    <h2 class="text-3xl font-bold text-gray-900">Technical Arsenal</h2>
+                    <p class="text-gray-500 mt-2">Tools I use to drive efficiency and reliability.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-googleBlue mb-4">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Data & Scripting</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">SQL (BigQuery)</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Python</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">JavaScript</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Bash</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300" style="transition-delay: 100ms;">
+                        <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-500 mb-4">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Cloud Ecosystem</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Google Cloud (GCP)</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">AWS (S3/EC2)</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">ServiceNow</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300" style="transition-delay: 200ms;">
+                        <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600 mb-4">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Visualization</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Looker Studio</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Tableau</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Power BI</span>
+                        </div>
+                    </div>
+
+                     <!-- Card 4 -->
+                     <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition reveal hover:-translate-y-2 duration-300" style="transition-delay: 300ms;">
+                        <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 mb-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Core Concepts</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">RCA</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">AIOps</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Agile</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600">Automation</span>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Project 3 (Full Width) -->
-                <div class="lg:col-span-2 bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group reveal">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Enterprise Projects (Cognizant/Google) -->
+        <section id="projects" class="py-20 bg-gray-50/90 border-t border-gray-200 backdrop-blur-sm">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 reveal">
+                    <span class="text-googleBlue font-bold tracking-widest uppercase text-sm">Enterprise Systems</span>
+                    <h2 class="text-3xl font-bold text-gray-900 mt-2">Professional Impact</h2>
+                    <p class="text-gray-500 mt-2">Engineering solutions deployed in high-traffic production environments.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group reveal">
                         <div class="p-8">
                             <div class="flex justify-between items-start mb-6">
-                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-50 text-googleYellow">
-                                    <i class="fas fa-coins text-xl"></i>
+                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-googleBlue">
+                                    <i class="fas fa-users text-xl"></i>
                                 </div>
-                                <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Finance</span>
+                                <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Analytics</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-googleYellow transition">Financial Logic & Incentive Engine</h3>
-                            <p class="text-gray-600 mb-6">Engineered logic algorithms to validate compensation data. This system acts as a firewall against calculation errors in payouts.</p>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">BigQuery</span>
-                                <span class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">JavaScript</span>
-                                <span class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">Data Validation</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-googleBlue transition">Participant Analytics Ecosystem</h3>
+                            <p class="text-gray-600 mb-6">A large-scale tracking ecosystem designed to manage engagement data for over 30,000 participants. Engineered a custom log and API analyzer to ensure data consistency.</p>
+                            
+                            <div class="border-t border-gray-100 pt-6">
+                                <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">Key Impact</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        Developed real-time troubleshooting framework ensuring 100% data integrity.
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        Seamlessly integrated AppSheet, AppScript, and SQL.
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="bg-gray-50 p-8 flex flex-col justify-center border-l border-gray-100">
-                             <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">Results</h4>
-                             <div class="space-y-4">
-                                 <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                                     <div class="text-2xl font-bold text-gray-900">100%</div>
-                                     <div class="text-sm text-gray-500">Financial Precision in Payouts</div>
+                        <div class="bg-gray-50 px-8 py-4 border-t border-gray-100 flex gap-3">
+                            <span class="text-xs font-semibold text-gray-500">AppSheet</span>
+                            <span class="text-xs font-semibold text-gray-500">AppScript</span>
+                            <span class="text-xs font-semibold text-gray-500">SQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group reveal" style="transition-delay: 200ms;">
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-red-50 text-googleRed">
+                                    <i class="fas fa-shield-alt text-xl"></i>
+                                </div>
+                                <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Compliance</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-googleRed transition">Automated Auditor Toolkit</h3>
+                            <p class="text-gray-600 mb-6">Built a centralized dashboard to automate the detection of compliance gaps, replacing manual sampling methods with algorithmic decision support.</p>
+                            
+                            <div class="border-t border-gray-100 pt-6">
+                                <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">Key Impact</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        Streamlined audit cycles by 30%.
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        Prevented "silent" discrepancies in enterprise databases.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-8 py-4 border-t border-gray-100 flex gap-3">
+                            <span class="text-xs font-semibold text-gray-500">Looker Studio</span>
+                            <span class="text-xs font-semibold text-gray-500">JavaScript</span>
+                            <span class="text-xs font-semibold text-gray-500">SQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (Full Width) -->
+                    <div class="lg:col-span-2 bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group reveal">
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-50 text-googleYellow">
+                                        <i class="fas fa-coins text-xl"></i>
+                                    </div>
+                                    <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Finance</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-googleYellow transition">Financial Logic & Incentive Engine</h3>
+                                <p class="text-gray-600 mb-6">Engineered logic algorithms to validate compensation data. This system acts as a firewall against calculation errors in payouts.</p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">BigQuery</span>
+                                    <span class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">JavaScript</span>
+                                    <span class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">Data Validation</span>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 p-8 flex flex-col justify-center border-l border-gray-100">
+                                 <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">Results</h4>
+                                 <div class="space-y-4">
+                                     <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                                         <div class="text-2xl font-bold text-gray-900">100%</div>
+                                         <div class="text-sm text-gray-500">Financial Precision in Payouts</div>
+                                     </div>
+                                     <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                                         <div class="text-2xl font-bold text-gray-900">Zero</div>
+                                         <div class="text-sm text-gray-500">Audit Findings after Implementation</div>
+                                     </div>
                                  </div>
-                                 <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                                     <div class="text-2xl font-bold text-gray-900">Zero</div>
-                                     <div class="text-sm text-gray-500">Audit Findings after Implementation</div>
-                                 </div>
-                             </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-     <!-- Academic & Engineering Projects (With Images) -->
-     <section class="py-20 bg-white border-t border-gray-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 reveal">
-                <span class="text-googleGreen font-bold tracking-widest uppercase text-sm">Engineering & Research</span>
-                <h2 class="text-3xl font-bold text-gray-900 mt-2">Academic & Personal Projects</h2>
-                <p class="text-gray-500 mt-2">Foundational work in Cloud, SQL, and Data Science.</p>
+         <!-- Academic & Engineering Projects (With Images) -->
+         <section class="py-20 bg-white/80 border-t border-gray-200 backdrop-blur-sm">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 reveal">
+                    <span class="text-googleGreen font-bold tracking-widest uppercase text-sm">Engineering & Research</span>
+                    <h2 class="text-3xl font-bold text-gray-900 mt-2">Academic & Personal Projects</h2>
+                    <p class="text-gray-500 mt-2">Foundational work in Cloud, SQL, and Data Science.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- NBA Database -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col">
+                        <div class="h-48 overflow-hidden bg-orange-50 relative">
+                            <img src="nba.jpg" alt="NBA Database Schema" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=NBA+SQL+Database'">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-basketball-ball text-orange-500"></i>
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">NBA Season Database</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Managed 2023/24 season data. Designed a full relational schema (ERD/UML) and optimized data queries for player/team stats.</p>
+                            <div class="mt-auto">
+                                <div class="flex gap-2 mb-4">
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">SQL</span>
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">ERD</span>
+                                </div>
+                                <!-- LINK TO PDF FILE -->
+                                <a href="nba.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Project PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AWS E-Commerce -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col" style="transition-delay: 100ms;">
+                        <div class="h-48 overflow-hidden bg-indigo-50 relative">
+                            <img src="aws.png" alt="AWS E-Commerce Shop" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=AWS+E-Commerce'">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fab fa-aws text-indigo-600"></i>
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">AWS Cloud Architecture</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Deployed a scalable e-commerce site (SDSU Tutoring Network). Configured EC2 instances, S3 storage, and Route 53 domain management.</p>
+                            <div class="mt-auto">
+                                <div class="flex gap-2 mb-4">
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">EC2</span>
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">S3</span>
+                                </div>
+                                <!-- LINK TO PDF FILE -->
+                                <a href="aws.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Project PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ServiceNow -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col" style="transition-delay: 200ms;">
+                        <div class="h-48 overflow-hidden bg-green-50 relative">
+                            <img src="servicenow.jpg" alt="ServiceNow Process Model" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=ServiceNow+Workflow'">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-network-wired text-green-600"></i>
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">ServiceNow Optimization</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Conducted deep-dive business process analysis. Modeled workflows in Lucidchart identifying a <strong class="text-gray-900">$84.4M</strong> revenue opportunity.</p>
+                            <div class="mt-auto">
+                                <div class="flex gap-2 mb-4">
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">BPR</span>
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Lucidchart</span>
+                                </div>
+                                <!-- LINK TO PDF FILE -->
+                                <a href="servicenow.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Proposal PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- World Happiness (Python) -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col">
+                        <div class="h-48 overflow-hidden bg-yellow-50 relative">
+                            <img src="happiness.jpg" alt="Python Data Visualization" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=Python+Analysis'">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fab fa-python text-yellow-600"></i>
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">World Happiness Analysis</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Data science project utilizing Matplotlib and Pandas to clean global datasets and visualize correlation factors in happiness.</p>
+                            <div class="mt-auto">
+                                <div class="flex gap-2 mb-4">
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Python</span>
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Pandas</span>
+                                </div>
+                                <!-- LINK TO PDF FILE -->
+                                <a href="happiness.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Analysis PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visualization Suite -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col" style="transition-delay: 100ms;">
+                        <div class="h-48 overflow-hidden bg-blue-50 relative">
+                            <img src="powerbi.jpg" alt="Power BI Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=PowerBI+Dashboard'">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-chart-bar text-blue-600"></i>
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">Visual Analytics Suite</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Interactive dashboards for US Coffee Sales and Global Superstore data. Implemented "What-If" analysis and KPI tracking.</p>
+                            <div class="mt-auto">
+                                <div class="flex gap-2 mb-4">
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Power BI</span>
+                                    <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Tableau</span>
+                                </div>
+                                <!-- LINK TO PDF FILE -->
+                                <a href="visual_analytics.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Dashboard PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- NBA Database -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col">
-                    <div class="h-48 overflow-hidden bg-orange-50 relative">
-                        <img src="nba.jpg" alt="NBA Database Schema" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=NBA+SQL+Database'">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-basketball-ball text-orange-500"></i>
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">NBA Season Database</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Managed 2023/24 season data. Designed a full relational schema (ERD/UML) and optimized data queries for player/team stats.</p>
-                        <div class="mt-auto">
-                            <div class="flex gap-2 mb-4">
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">SQL</span>
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">ERD</span>
-                            </div>
-                            <!-- LINK TO PDF FILE -->
-                            <a href="nba.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Project PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AWS E-Commerce -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col" style="transition-delay: 100ms;">
-                    <div class="h-48 overflow-hidden bg-indigo-50 relative">
-                        <img src="aws.png" alt="AWS E-Commerce Shop" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=AWS+E-Commerce'">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fab fa-aws text-indigo-600"></i>
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">AWS Cloud Architecture</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Deployed a scalable e-commerce site (SDSU Tutoring Network). Configured EC2 instances, S3 storage, and Route 53 domain management.</p>
-                        <div class="mt-auto">
-                            <div class="flex gap-2 mb-4">
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">EC2</span>
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">S3</span>
-                            </div>
-                            <!-- LINK TO PDF FILE -->
-                            <a href="aws.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Project PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ServiceNow -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col" style="transition-delay: 200ms;">
-                    <div class="h-48 overflow-hidden bg-green-50 relative">
-                        <img src="servicenow.jpg" alt="ServiceNow Process Model" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=ServiceNow+Workflow'">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-network-wired text-green-600"></i>
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">ServiceNow Optimization</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Conducted deep-dive business process analysis. Modeled workflows in Lucidchart identifying a <strong class="text-gray-900">$84.4M</strong> revenue opportunity.</p>
-                        <div class="mt-auto">
-                            <div class="flex gap-2 mb-4">
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">BPR</span>
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Lucidchart</span>
-                            </div>
-                            <!-- LINK TO PDF FILE -->
-                            <a href="servicenow.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Proposal PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- World Happiness (Python) -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col">
-                    <div class="h-48 overflow-hidden bg-yellow-50 relative">
-                        <img src="happiness.jpg" alt="Python Data Visualization" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=Python+Analysis'">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fab fa-python text-yellow-600"></i>
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">World Happiness Analysis</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Data science project utilizing Matplotlib and Pandas to clean global datasets and visualize correlation factors in happiness.</p>
-                        <div class="mt-auto">
-                            <div class="flex gap-2 mb-4">
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Python</span>
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Pandas</span>
-                            </div>
-                            <!-- LINK TO PDF FILE -->
-                            <a href="happiness.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Analysis PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Visualization Suite -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:border-googleBlue transition group reveal flex flex-col" style="transition-delay: 100ms;">
-                    <div class="h-48 overflow-hidden bg-blue-50 relative">
-                        <img src="powerbi.jpg" alt="Power BI Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=PowerBI+Dashboard'">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-chart-bar text-blue-600"></i>
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-googleBlue transition">Visual Analytics Suite</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Interactive dashboards for US Coffee Sales and Global Superstore data. Implemented "What-If" analysis and KPI tracking.</p>
-                        <div class="mt-auto">
-                            <div class="flex gap-2 mb-4">
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Power BI</span>
-                                <span class="text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200 px-2 py-1 rounded">Tableau</span>
-                            </div>
-                            <!-- LINK TO PDF FILE -->
-                            <a href="visual_analytics.pdf" target="_blank" class="text-googleBlue text-sm font-bold hover:underline inline-flex items-center">View Dashboard PDF <i class="fas fa-file-pdf ml-1 text-xs"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Timeline -->
-    <section id="experience" class="py-20 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center reveal">Career Timeline</h2>
-            
-            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
-                
-                <!-- Role 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google" class="w-5 h-5 opacity-80">
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="font-bold text-gray-900">Cognizant / Google</span>
-                            <span class="text-xs text-googleBlue font-bold bg-blue-50 px-2 py-1 rounded">Current</span>
-                        </div>
-                        <div class="text-sm font-medium text-gray-500 mb-2">Systems Analyst & Automation Lead</div>
-                        <p class="text-gray-600 text-sm">Delivering 99.9% uptime and reducing reporting time by 40% via SQL automation.</p>
-                    </div>
-                </div>
-
-                <!-- Role 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                         <i class="fas fa-code text-gray-400"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="font-bold text-gray-900">Smartronix (SMX)</span>
-                            <span class="text-xs text-gray-500 font-bold">2023</span>
-                        </div>
-                        <div class="text-sm font-medium text-gray-500 mb-2">Data/Software Engineering Intern</div>
-                        <p class="text-gray-600 text-sm">
-                             <strong>Challenge:</strong> Handling large volumes of text data efficiently.<br>
-                             <strong>Solution:</strong> Engineered Python-based keyword extraction tools (BERT) improving processing speed by 30%.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Role 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-pen-nib text-gray-400"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="font-bold text-gray-900">Adobe</span>
-                            <span class="text-xs text-gray-500 font-bold">2022-2024</span>
-                        </div>
-                        <div class="text-sm font-medium text-gray-500 mb-2">Student Engagement Lead</div>
-                        <p class="text-gray-600 text-sm">Generated 250+ leads and analyzed engagement trends using data.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800 relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0">
                 <span class="font-bold text-xl tracking-tight">BRYANT ABALOS</span>
